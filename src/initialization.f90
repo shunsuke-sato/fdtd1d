@@ -3,13 +3,18 @@
 ! Released under the MIT license                    !
 ! https://opensource.org/licenses/mit-license.php   !
 !---------------------------------------------------!
-program initialization
+subroutine initialization
   use global_variables
   implicit none
-  integer :: im
+  integer :: im,ix
 
   eps = 1d0
   sigma = 0d0
+
+  do ix = Nx_L,Nx_R
+    xn(ix) = (dble(ix)-0.5d0)*Hx
+  end do
+
 
   do im = 1,Mx
     eps(im) = eps0
@@ -18,4 +23,4 @@ program initialization
 
   call input_Ac
 
-end program allocation
+end subroutine initialization

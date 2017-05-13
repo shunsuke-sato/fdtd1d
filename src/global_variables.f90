@@ -11,9 +11,14 @@ module global_variables
   real(8),parameter :: pi=4d0*atan(1d0)
   complex(8),parameter :: zI=(0d0,1d0)
 
+! Physical constant
+  real(8),parameter :: a_B=0.529177d0,Ry=13.6058d0
+  real(8),parameter :: clight = 137.03953250d0 
+
 ! FDTD grid
   integer :: Nx_L,NX_R, Mx, Nt
   real(8) :: Hx, dt
+  real(8),allocatable :: xn(:)
   
 ! electric field
   real(8),allocatable :: Ez(:),Ez_new(:),Ez_old(:),LapEz(:)
